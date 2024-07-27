@@ -73,7 +73,7 @@ while (index <= 10) {
 
 let myArr = [`a`, `b`, `c`, `d`]
 let arr = 0
-while (arr<myArr.length) {
+while (arr < myArr.length) {
     // console.log(`value is ${myArr[arr]}`);
     arr = arr + 1
 }
@@ -82,9 +82,135 @@ while (arr<myArr.length) {
 
 let score = 1
 do {
-    console.log(`score is ${score}`);    
-    score ++
-} while (score <=10);
+    // console.log(`score is ${score}`);
+    score++
+} while (score <= 10);
 
 
 
+
+// Some types of loops
+
+// forof loop
+
+// ["", "", ""]
+// [{} , {} , {}]
+
+let array = [`1`, `2`, `3`, `4`, `5`]
+
+for (const num of array) {
+    // console.log(num);
+}
+
+
+
+const greeting = "hello world!"
+
+for (const greet of greeting) {
+    // console.log(`each char is ${greet}`);
+}
+
+
+//Maps
+
+// const map = new Map()
+// map.set('IN', 'India')
+// map.set('USA', 'United State Of America')
+// map.set('FR', 'Franch')
+// map.set('IN', 'India')
+
+// console.log(map);
+
+// for (const [key,value] of map) {
+//     // console.log(key , ':-', value);
+// }
+
+// const myobj = {
+//     game1 : 'xyz',
+//     game2 : 'abc'
+// }
+
+// for (const [key ,value] of myobj) {
+//     console.log((key , ':-', value);
+// }
+
+
+// forin loop
+
+const myobj = {
+    game1: 'xyz',
+    game2: 'abc',
+    game3: 'zyx',
+    game4: 'cba'
+}
+
+for (const key in myobj) {
+    // console.log(`${key} game name is for ${myobj[key]}`);
+}
+
+
+const programing = ['java', 'js', 'ruby', 'c', 'c++']
+
+for (const key in programing) {
+    // console.log(`${key} programing language is ${programing[key]}`);
+}
+
+
+const map = new Map()
+map.set('IN', 'India')
+map.set('USA', 'United State Of America')
+map.set('FR', 'Franch')
+map.set('IN', 'India')
+
+for (const key in map) {
+    // console.log(key);
+}
+
+
+
+
+// foreach loop
+
+const code = ['js', 'java', 'c', 'c++', 'python']
+
+// code.forEach(function (item) {
+//     console.log(item);
+// });
+
+
+// code.forEach((item) => {
+//     console.log(item);
+// });
+
+
+// function printme (item){
+//     console.log(item);
+// }
+
+// code.forEach(printme);
+
+
+// code.forEach((item , index , arr) =>{
+//     console.log(item , index , arr);
+// })
+
+
+
+const coding = [
+    {
+        langName: "javascript",
+        langVersion: "javascript",
+    },
+    {
+        langName: "java",
+        langVersion: "java",
+    },
+    {
+        langName: "python",
+        langVersion: "python",
+    },
+]
+
+coding.forEach((item) => {
+    console.log(item.langName,item.langVersiona );
+})
