@@ -1,0 +1,10 @@
+window --->
+document --->
+html --->
+head --->   &   body --->
+  head : title  &  meta
+        title : text mode   &  meta : attribute
+body : div 
+        div : attribute  &  p  &  h1
+            p : attribute
+            h1 : text mode  &  attribute
