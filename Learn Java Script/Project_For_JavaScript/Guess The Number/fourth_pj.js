@@ -1,46 +1,102 @@
-const randomNumber = (parseInt(Math.random() * 100 + 1));
+// Generate a random number between 1 and 100
+let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-const submit = document.querySelector('#subt')
-const userInput = document.querySelector('#guessField')
-const guesSlot = document.querySelector('.guesses')
-const remaining = document.querySelector('.lastResult')
-const lowOrHigh = document.querySelector('.lowOrHi')
-const startOver = document.querySelector('.resultParas')
+// Select elements from the DOM
+const guessForm = document.getElementById('guessForm');
+const guessField = document.getElementById('guessField');
+const guessesDisplay = document.getElementById('guesses');
+const remainingDisplay = document.getElementById('remaining');
+const messageDisplay = document.getElementById('message');
+const newGameButton = document.getElementById('newGame');
 
+// Initialize game state variables
+let prevGuesses = [];
+let remainingGuesses = 10;
+let gameEnded = false;
 
-const p = document.createElement('p')    // create a paragraph
+// Event listener for the guess submission form
+guessForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
 
-let prevGuess = []   // show an array in previous Guesses number by usesrs
-let numGuess = 1   // how many attempt to guesses the users number 
-let number = randomNumber;  // the number to be guessed by the user  || Users guesses 1 - 10 then submit button will disable 
+    if (!gameEnded) {
+        const userGuess = parseInt(guessField.value);
 
-let playGame = true  // create a variable 
+        // Validate the user's guess
+        if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+            setMessage('Please enter a valid number between 1 and 100.');
+        } else {
+            checkGuess(userGuess);
+        }
 
+        guessField.value = ''; // Clear the input field
+    }
+});
 
-function valiDateGuess(guess){
-    // users get a valid number (ex: not a negative number )
+// Function to check the user's guess
+function checkGuess(guess) {
+    if (prevGuesses.includes(guess)) {
+        setMessage('You already guessed that number!');
+    } else {
+        prevGuesses.push(guess); // Add the guess to the array of previous guesses
+
+        // Display the guessed number
+        guessesDisplay.textContent = prevGuesses.join(', ');
+
+        // Decrease the remaining guesses
+        remainingGuesses--;
+
+        // Update the remaining guesses display
+        remainingDisplay.textContent = remainingGuesses;
+
+        // Check if the guess is correct
+        if (guess === randomNumber) {
+            gameOver(true);
+        } else if (remainingGuesses === 0) {
+            gameOver(false);
+        } else {
+            // Provide feedback on the guess
+            const message = guess < randomNumber ? 'Too low!' : 'Too high!';
+            setMessage(message);
+        }
+    }
 }
 
+// Function to end the game
+function gameOver(won) {
+    gameEnded = true;
+    const message = won ? `Congratulations! You guessed the number ${randomNumber} correctly.` : `Game over. The number was ${randomNumber}.`;
+    setMessage(message);
 
-function checkGuess(guess){
-    // valid a number to check this 
+    // Disable the guess input and submit button
+    guessField.disabled = true;
+    guessForm.querySelector('button').disabled = true;
+
+    // Show the New Game button
+    newGameButton.style.display = 'block';
 }
 
-
-function displayGuess(guess){
-    // clean a value , update a array , print a array 
+// Function to set messages in the message display area
+function setMessage(message) {
+    messageDisplay.textContent = message;
 }
 
+// Event listener for the New Game button
+newGameButton.addEventListener('click', function() {
+    // Reset game variables
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    prevGuesses = [];
+    remainingGuesses = 10;
+    gameEnded = false;
 
-function displayMassege(massage){
-    // display a massege to the user
-}
+    // Reset displays
+    guessesDisplay.textContent = '';
+    remainingDisplay.textContent = remainingGuesses;
+    messageDisplay.textContent = '';
 
+    // Enable the guess input and submit button
+    guessField.disabled = false;
+    guessForm.querySelector('button').disabled = false;
 
-function newGame(){
-    // reset a game , clean a array , disable a button , reset a number 
-}
-
-function endGame(){
-    // display a massege to the user , disable a button , clean a array , reset a number
-}
+    // Hide the New Game button
+    newGameButton.style.display = 'none';
+});
