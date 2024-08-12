@@ -1,0 +1,11 @@
+// console.log is the browser devoloper tool inject runtime javascript
+
+
+promise javascript
+
+promises three states are there -->
+--> pending : initial state , neither fulfilled nor rejected.
+--> fulfilled : meaning that the operation was completed successfully.
+--> rejected : meaning that the operation failed .
+
+The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
