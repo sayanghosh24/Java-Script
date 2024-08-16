@@ -1,6 +1,3 @@
-// console.log is the browser devoloper tool inject runtime javascript
-
-
 promise javascript
 
 promises three states are there -->
@@ -9,3 +6,26 @@ promises three states are there -->
 --> rejected : meaning that the operation failed .
 
 The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+Are there stile reasons to use promise libraries like Q or BlueBird now that we have ES6 promises?[closed]
+
+Fetch ()
+you made a request through promise and from there you got an error , so they fetch you , will you get it , meaning will you get it in resolve or reject ??
+Ans :
+You will always get a response , it is not an error , the error will happen only when the request is not able to be done by the bowser , it is only howthat you get an error
+
+
+The Fetch API uses Request and Response objects (and other things involved with network requests), as well as related concepts such as CORS and the HTTP Origin header semantics.
+
+Fetch Method
+https://fetch.spec.whatwg.org/#fetch-method follow notes for fetch method
+
+response = fetch ('somthing')
+fetch devide by two part
+==> web bowser / node
+==> some of your variables and to reserve the complete space for data in the memories
+    ==> onfulfilled[func] this is the promise resolution
+    ==> onrejection[func] this is the rejection
+    These are there you are not allowed to push values directly in these arrays . These are not you range you can't access them , these are privet fields even the data is a privet field .
+
+    this func are responsible for filling the data 
