@@ -1,0 +1,34 @@
+javascript and classes
+
+oop
+
+object
+collection of properties and methods 
+
+toLowerCase , toUpperCase , date
+
+why use oop
+
+parts of oop
+object literal  is a keyword
+
+constructor function
+prototypes
+classes
+instances (new , this)
+
+
+4 keyword / 4 pillars of javascript
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+
+
+object if it has been created , then 
+    step 1 ==> object is being created  
+    step 2 ==> a constructor function called  because of the new keyword 
+    step 3 ==>   that your this keyword whatever arguments you have written get injected inside it
+    step 4 ==>  you get it inside the function
+this is the basic marking mechanism
+
